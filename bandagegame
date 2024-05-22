@@ -1,0 +1,70 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int solution(vector<int> bandage, int health, vector<vector<int>> attacks) {
+    int max_health = health;
+    int cur_health = health;
+    int time = 0;
+    int consecutive_success = 0;
+
+    for (auto attack : attacks) {
+        // Check if current time is before the next attack time
+        while (time < attack[0]) {
+            // Apply bandage if within the bandage time and not attacked
+            if (time % bandage[0] == 0 && consecutive_success < bandage[0] && cur_health < max_health) {
+                cur_health += bandage[1];
+                if (consecutive_success == bandage[0]) {
+                    cur_health += bandage[2];
+                    consecutive_success = 0;
+                }
+            }
+            time++;
+
+            // Check if the character survives
+            if (cur_health <= 0) {
+                return -1;
+            }
+        }
+
+        // Handle monster attack
+        cur_health -= attack[1];
+        consecutive_success = 0;
+
+        // Check if the character survives
+        if (cur_health <= 0) {
+            return -1;
+        }
+      // Apply bandage for remaining time if necessary
+      while (time % bandage[0] != 0) {
+          if (cur_health < max_health) {
+              cur_health += bandage[1];
+              if (++consecutive_success == bandage[0]) {
+                  cur_health += bandage[2];
+                  consecutive_success = 0;
+              }
+          }
+          time++;
+
+          // Check if the character survives
+          if (cur_health <= 0) {
+              return -1;
+          }
+      }
+        cout << "hp : " << cur_health << endl;
+    }
+
+
+    return cur_health;
+}
+
+int main() {
+    // Example usage
+    vector<int> bandage = {4, 2, 7};
+    int health = 20;
+    vector<vector<int>> attacks = {{1, 15}, {5, 16}, {8, 6}};
+    cout << solution(bandage, health, attacks) << endl;
+
+    return 0;
+}
