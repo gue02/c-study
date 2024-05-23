@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+class Shape{
+protected:
+    virtual void draw() {cout << "drawing shapes" << endl;}
+    friend void paint(Shape *s);
+};
+class Circle : public Shape{
+protected:
+    virtual void draw() {cout << "drawing Circles" << endl;}
+};
+class Rect : public Shape{
+protected:
+    virtual void draw() {cout << "drawing Rectangles" << endl;}
+};
+class Line : public Shape{
+protected:
+    virtual void draw() {cout << "drawing Lines" << endl;}
+};
+void paint(Shape *s){
+    s->draw();
+}
+int main(){
+    paint(new Circle());
+    paint(new Rect());
+    paint(new Line());
+}
