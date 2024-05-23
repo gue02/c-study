@@ -1,0 +1,17 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+int main() {
+    vector<int> numbers = {1, 2, 3, 4, 5};
+    int sum = 0;
+    // 범위 기반 for 루프를 사용하여 벡터의 각 요소를 출력합니다.
+    for (int num : numbers) {
+        cout <<"num: "<< num << ", next num: " << num+1 << endl;
+        sum += num;
+    }
+    cout <<"sum is " << sum;
+    cout << endl;
+
+    return 0;
+}
