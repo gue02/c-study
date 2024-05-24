@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+template <class T>
+void myswap(T &a, T &b){
+    cout << "start swaping" << endl;
+    T tmp;
+    tmp = a;
+    a = b;
+    b = tmp;
+}
+int main() {
+   int a,b;
+    a=3;
+    b=4;
+    cout<<"a: " << a << " b:" <<b << endl;
+    myswap(a,b);
+    cout<<"a: " << a << " b:" <<b << endl;
+}
