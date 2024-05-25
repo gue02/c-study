@@ -1,19 +1,28 @@
 #include <iostream>
-
 using namespace std;
+
+class Circle{
+int radius;
+public:
+Circle(int radius=1) { this->radius = radius; }
+int getRadius() { return radius; }
+};
 template <class T>
-void myswap(T &a, T &b){
-    cout << "start swaping" << endl;
-    T tmp;
-    tmp = a;
-    a = b;
-    b = tmp;
+void myswap(T& a, T& b){
+  T tmp;
+  tmp = a;
+  a = b;
+  b = tmp;
 }
-int main() {
-   int a,b;
-    a=3;
-    b=4;
-    cout<<"a: " << a << " b:" <<b << endl;
-    myswap(a,b);
-    cout<<"a: " << a << " b:" <<b << endl;
+
+int main(){
+  int a=5, b=9;
+  myswap(a,b);
+  cout << "a=" << a << ", b=" << b << endl;
+  double c=0.3, d = 12.5;
+  myswap(c,d);
+  cout << "c=" << c << ", d=" << d << endl;
+  Circle waffle(3), pizza(5);
+  myswap(waffle, pizza);
+  cout << "waffle's radius = " << waffle.getRadius() << " ,pizza's radius" << pizza.getRadius() << endl;
 }
