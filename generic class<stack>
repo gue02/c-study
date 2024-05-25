@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+template <class T>
+class stack{
+int tos;
+T data[100];
+public:
+stack();
+void push(T element);
+T pop();
+};
+
+template <class T>
+stack<T>::stack(){
+  tos=-1;
+}
+
+template <class T>
+void stack<T>::push(T element){
+  if(tos==99){
+    cout<<"stack full"<<endl;
+    return;
+  }
+  tos++;
+  data[tos] = element;
+}
+
+template <class T>
+T stack<T>::pop(){
+  T retData;
+  if(tos==-1){
+    cout<<"stack empty"<<endl;
+    return 0;
+  }
+  retData = data[tos--];
+  return retData;
+}
