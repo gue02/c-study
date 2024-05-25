@@ -26,3 +26,6 @@ int main(){
   myswap(waffle, pizza);
   cout << "waffle's radius = " << waffle.getRadius() << " ,pizza's radius" << pizza.getRadius() << endl;
 }
+/* 일종의 함수의 틀의 역할을 하는 템플릿은 제네릭 함수 선언과 구체화를 위해서 이용한다.
+작성을 용이하게 만들고 유연성을 높임과 동시에 가독성에도 좋은 영향을 끼치지만 
+추가적으로 템플릿 관련 오류 메세지 부족으로 오류 메세지가 빈약한 탓에 디버깅에서 어려움을 갖게 만든다. */
