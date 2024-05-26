@@ -1,0 +1,20 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> n;
+    n.push_back(1);
+    n.push_back(2);
+    n.push_back(3);
+    n.push_back(4);
+    vector<int>::iterator itr = n.begin();
+    cout << *itr << endl;
+    itr = itr + 2;
+    cout << *itr << endl;
+    n.insert(itr,7);
+    cout << n[2] << endl;
+    cout << *itr << endl;
+    itr = n.begin()+2;
+    cout << *itr << endl;
+}
